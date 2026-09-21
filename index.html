@@ -1,123 +1,364 @@
-```html
 <!DOCTYPE html>
 <html lang="mn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Бямба Ням-Осор | CV</title>
+    <title>Бямба Ням-Осор | Portfolio</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f4f7;
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #334155;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* MAIN */
         .container {
-            width: 80%;
-            max-width: 1000px;
-            margin: 40px auto;
-            background-color: white;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        header {
-            text-align: center;
-            padding-bottom: 25px;
-            border-bottom: 2px solid #eeeeee;
-        }
-
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #333;
-        }
-
-        h1 {
-            margin-bottom: 5px;
-            font-size: 32px;
-        }
-
-        .job-title {
-            color: #666;
-            font-size: 18px;
+            width: 85%;
+            max-width: 1100px;
+            margin: auto;
         }
 
         section {
+            padding: 80px 0;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #38bdf8;
+            margin-bottom: 25px;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero h2 {
+            color: #94a3b8;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        .buttons {
             margin-top: 30px;
         }
 
-        h2 {
-            color: #222;
-            border-left: 5px solid #333;
-            padding-left: 10px;
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 5px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        p {
-            line-height: 1.7;
+        .primary {
+            background: #38bdf8;
+            color: #0f172a;
         }
 
-        ul {
-            line-height: 2;
+        .primary:hover {
+            transform: translateY(-3px);
+            background: #7dd3fc;
         }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .secondary {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
         }
 
-        .skill {
-            background-color: #333;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
+        .secondary:hover {
+            background: #38bdf8;
+            color: #0f172a;
         }
 
-        .info {
+        /* TITLES */
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+        /* ABOUT */
+        .about {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 30px;
         }
 
         .card {
-            background-color: #f7f7f7;
-            padding: 15px;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        /* EDUCATION */
+        .timeline {
+            border-left: 3px solid #38bdf8;
+            padding-left: 25px;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: #38bdf8;
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            color: #38bdf8;
+        }
+
+        .timeline-item p {
+            color: #cbd5e1;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-info span:last-child {
+            color: #38bdf8;
+        }
+
+        .bar {
+            height: 9px;
+            background: #334155;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: #38bdf8;
             border-radius: 10px;
         }
 
-        a {
-            color: #0066cc;
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            border-color: #38bdf8;
+        }
+
+        .project-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #cbd5e1;
+        }
+
+        /* INTERESTS */
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .interest {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 12px 20px;
+            border-radius: 25px;
+        }
+
+        /* CONTACT */
+        .contact {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            text-align: center;
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+        }
+
+        .contact-card .icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card h3 {
+            color: #38bdf8;
+        }
+
+        .contact-card a {
+            color: #cbd5e1;
             text-decoration: none;
         }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
+        /* FOOTER */
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #777;
+            padding: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                width: 90%;
-                padding: 20px;
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
             }
 
-            .info {
+            nav ul {
+                gap: 12px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .about,
+            .skills,
+            .projects,
+            .contact {
                 grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 90%;
             }
         }
     </style>
@@ -125,257 +366,418 @@
 
 <body>
 
-<div class="container">
+    <!-- NAVIGATION -->
+    <nav>
 
-    <!-- Танилцуулга -->
-    <header>
-
-        <!-- profile.jpg гэдэг зураг HTML файлтайгаа нэг folder-т байна -->
-        <img src="profile.jpg" alt="Бямба Ням-Осор" class="profile-img">
-
-        <h1>Бямба Ням-Осор</h1>
-
-        <p class="job-title">
-            Программ хангамжийн инженерчлэлийн оюутан
-        </p>
-
-        <p>
-            ШУТИС-ийн Мэдээлэл холбооны сургууль
-        </p>
-
-    </header>
-
-
-    <!-- Өөрийн тухай -->
-    <section>
-
-        <h2>👨‍💻 Миний тухай</h2>
-
-        <p>
-            Сайн байна уу? Намайг Бямба Ням-Осор гэдэг.
-            Би ШУТИС-ийн Мэдээлэл холбооны сургуульд
-            Программ хангамжийн инженерчлэлийн чиглэлээр
-            суралцдаг оюутан.
-        </p>
-
-        <p>
-            Программчлал, вэб хөгжүүлэлт болон шинэ технологиудыг
-            сонирхон судалж байгаа бөгөөд өөрийн мэдлэг, чадвараа
-            тасралтгүй хөгжүүлэхийг зорьдог.
-        </p>
-
-    </section>
-
-
-    <!-- Боловсрол -->
-    <section>
-
-        <h2>🎓 Боловсрол</h2>
-
-        <div class="card">
-
-            <h3>ШУТИС – Мэдээлэл холбооны сургууль</h3>
-
-            <p>
-                <strong>Мэргэжил:</strong>
-                Программ хангамжийн инженерчлэл
-            </p>
-
-            <p>
-                <strong>Түвшин:</strong>
-                Бакалавр
-            </p>
-
-            <p>
-                Программчлал, алгоритм, веб технологи болон
-                программ хангамжийн инженерчлэлийн суурь
-                мэдлэг эзэмшиж байна.
-            </p>
-
+        <div class="logo">
+            B.Nym-Osor
         </div>
 
-    </section>
-
-
-    <!-- Техникийн чадвар -->
-    <section>
-
-        <h2>💻 Техникийн чадварууд</h2>
-
-        <div class="skills">
-
-            <span class="skill">HTML5</span>
-
-            <span class="skill">CSS3</span>
-
-            <span class="skill">C++</span>
-
-            <span class="skill">Python</span>
-
-            <span class="skill">Git</span>
-
-            <span class="skill">GitHub</span>
-
-            <span class="skill">VS Code</span>
-
-        </div>
-
-    </section>
-
-
-    <!-- Программчлалын чадвар -->
-    <section>
-
-        <h2>🚀 Программчлалын мэдлэг</h2>
-
         <ul>
-
-            <li>HTML ашиглан веб хуудас үүсгэх</li>
-
-            <li>CSS ашиглан веб хуудасны загвар боловсруулах</li>
-
-            <li>C++ хэл дээр суурь программ бичих</li>
-
-            <li>Python хэл дээр программ бичих</li>
-
-            <li>Алгоритм болон логик сэтгэлгээний суурь мэдлэг</li>
-
-            <li>Git болон GitHub ашиглан код хадгалах</li>
-
-            <li>VS Code хөгжүүлэлтийн орчин ашиглах</li>
-
+            <li><a href="#about">Тухай</a></li>
+            <li><a href="#education">Боловсрол</a></li>
+            <li><a href="#skills">Чадвар</a></li>
+            <li><a href="#projects">Төсөл</a></li>
+            <li><a href="#contact">Холбоо</a></li>
         </ul>
 
-    </section>
+    </nav>
 
 
-    <!-- Хувийн чадвар -->
-    <section>
+    <main class="container">
 
-        <h2>⭐ Хувийн чадварууд</h2>
+        <!-- HERO -->
+        <section class="hero">
 
-        <ul>
+            <div class="hero-content">
 
-            <li>Шинэ зүйл хурдан суралцах хүсэлтэй</li>
+                <!-- profile.jpg файлаа GitHub-д бас upload хийнэ -->
+                <img src="profile.jpg"
+                     alt="Бямба Ням-Осор"
+                     class="profile-img">
 
-            <li>Багаар ажиллах чадвартай</li>
+                <h1>
+                    Сайн байна уу, би <span>Ням-Осор</span>
+                </h1>
 
-            <li>Асуудлыг шийдвэрлэх сонирхолтой</li>
-
-            <li>Хариуцлагатай</li>
-
-            <li>Өөрийгөө хөгжүүлэх эрмэлзэлтэй</li>
-
-            <li>Цагийн менежментэд анхаардаг</li>
-
-        </ul>
-
-    </section>
-
-
-    <!-- Хэлний мэдлэг -->
-    <section>
-
-        <h2>🌎 Хэлний мэдлэг</h2>
-
-        <div class="info">
-
-            <div class="card">
-                <h3>Монгол хэл</h3>
-                <p>Төрөлх хэл</p>
-            </div>
-
-            <div class="card">
-                <h3>Англи хэл</h3>
-                <p>Суурь – дунд түвшин</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Сонирхол -->
-    <section>
-
-        <h2>🎯 Сонирхол</h2>
-
-        <ul>
-
-            <li>Программчлал</li>
-
-            <li>Вэб хөгжүүлэлт</li>
-
-            <li>Шинэ технологи судлах</li>
-
-            <li>Компьютер болон технологи</li>
-
-            <li>Спорт</li>
-
-        </ul>
-
-    </section>
-
-
-    <!-- Холбоо барих -->
-    <section>
-
-        <h2>📞 Холбоо барих</h2>
- <div class="card">
-            <h3>📱 Утас</h3>
-            <p>94606280</p>
-    
-
-        <div class="info">
-
-            <div class="card">
-                <h3>📧 Email</h3>
-                <p>nymosor8888@gmail.com</p>
-            </div>
-
-            <div class="card">
-                <h3>💻 GitHub</h3>
+                <h2>
+                    Программ хангамжийн инженерчлэлийн оюутан
+                </h2>
 
                 <p>
-                    <a href="https://github.com" target="_blank">
-                        GitHub профайл
-                    </a>
+                    Программчлал, веб хөгжүүлэлт болон
+                    шинэ технологиудыг сонирхон судалж байна.
                 </p>
+
+                <div class="buttons">
+
+                    <a href="#projects" class="btn primary">
+                        Миний төслүүд
+                    </a>
+
+                    <a href="#contact" class="btn secondary">
+                        Холбоо барих
+                    </a>
+
+                </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- Зорилго -->
-    <section>
+        <!-- ABOUT -->
+        <section id="about">
 
-        <h2>🎯 Миний зорилго</h2>
+            <h2 class="section-title">
+                👨‍💻 <span>Миний тухай</span>
+            </h2>
 
-        <p>
-            Программ хангамжийн инженерчлэлийн чиглэлээр
-            мэргэжлийн түвшинд хөгжиж, чанартай программ
-            хангамж бүтээдэг чадварлаг программист болох.
-            Мөн веб хөгжүүлэлт болон программчлалын мэдлэгээ
-            тасралтгүй сайжруулж, бодит төсөл дээр ажиллах
-            туршлага хуримтлуулахыг зорьж байна.
-        </p>
+            <div class="about">
 
-    </section>
+                <div class="card">
+
+                    <h3>Товч танилцуулга</h3>
+
+                    <p>
+                        Намайг Бямба Ням-Осор гэдэг.
+                        Би ШУТИС-ийн Мэдээлэл холбооны сургуульд
+                        Программ хангамжийн инженерчлэлийн
+                        чиглэлээр суралцдаг.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Программчлалын суурь мэдлэгээ хөгжүүлж,
+                        веб хөгжүүлэлт болон программ хангамжийн
+                        инженерчлэлийн чиглэлээр өөрийгөө
+                        хөгжүүлж байна.
+                    </p>
+
+                </div>
 
 
+                <div class="card">
+
+                    <h3>Миний зорилго 🎯</h3>
+
+                    <p>
+                        Ирээдүйд чадварлаг программ хангамжийн
+                        инженер болж, бодит асуудлыг технологийн
+                        тусламжтайгаар шийдвэрлэх программ,
+                        веб системүүд бүтээхийг зорьдог.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Мөн багаар ажиллах чадвараа хөгжүүлж,
+                        бодит төсөл дээр ажиллах туршлага
+                        хуримтлуулахыг хүсдэг.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EDUCATION -->
+        <section id="education">
+
+            <h2 class="section-title">
+                🎓 <span>Боловсрол</span>
+            </h2>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <h3>ШУТИС – Мэдээлэл холбооны сургууль</h3>
+
+                    <p>
+                        Программ хангамжийн инженерчлэл
+                    </p>
+
+                    <p>
+                        Бакалаврын түвшин
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <h3>Программчлалын сургалт</h3>
+
+                    <p>
+                        C++, Python, HTML, CSS болон
+                        алгоритмын суурь мэдлэг эзэмшиж байна.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+        <section id="skills">
+
+            <h2 class="section-title">
+                💻 <span>Миний чадварууд</span>
+            </h2>
+
+            <div class="skills">
+
+                <div class="skill-box">
+
+                    <div class="skill-info">
+                        <span>HTML</span>
+                        <span>80%</span>
+                    </div>
+
+                    <div class="bar">
+                        <div class="progress" style="width:80%"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-box">
+
+                    <div class="skill-info">
+                        <span>CSS</span>
+                        <span>70%</span>
+                    </div>
+
+                    <div class="bar">
+                        <div class="progress" style="width:70%"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-box">
+
+                    <div class="skill-info">
+                        <span>C++</span>
+                        <span>65%</span>
+                    </div>
+
+                    <div class="bar">
+                        <div class="progress" style="width:65%"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-box">
+
+                    <div class="skill-info">
+                        <span>Python</span>
+                        <span>60%</span>
+                    </div>
+
+                    <div class="bar">
+                        <div class="progress" style="width:60%"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-box">
+
+                    <div class="skill-info">
+                        <span>Git & GitHub</span>
+                        <span>60%</span>
+                    </div>
+
+                    <div class="bar">
+                        <div class="progress" style="width:60%"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-box">
+
+                    <div class="skill-info">
+                        <span>Problem Solving</span>
+                        <span>70%</span>
+                    </div>
+
+                    <div class="bar">
+                        <div class="progress" style="width:70%"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+        <section id="projects">
+
+            <h2 class="section-title">
+                🚀 <span>Миний төслүүд</span>
+            </h2>
+
+            <div class="projects">
+
+                <div class="project">
+
+                    <div class="project-icon">🌐</div>
+
+                    <h3>HTML CV Website</h3>
+
+                    <p>
+                        HTML болон CSS ашиглан өөрийн
+                        танилцуулга болон CV веб хуудас
+                        бүтээсэн.
+                    </p>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-icon">🎮</div>
+
+                    <h3>Python Game</h3>
+
+                    <p>
+                        Python хэл ашиглан энгийн тоглоомын
+                        логик болон хэрэглэгчийн оролцоотой
+                        программ хөгжүүлж байна.
+                    </p>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-icon">💻</div>
+
+                    <h3>C++ Projects</h3>
+
+                    <p>
+                        C++ ашиглан алгоритм, функц,
+                        массив болон класс дээр суурилсан
+                        жижиг төслүүд хийж байна.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INTERESTS -->
+        <section>
+
+            <h2 class="section-title">
+                ⭐ <span>Сонирхол</span>
+            </h2>
+
+            <div class="interests">
+
+                <div class="interest">💻 Программчлал</div>
+
+                <div class="interest">🌐 Веб хөгжүүлэлт</div>
+
+                <div class="interest">🎮 Тоглоом хөгжүүлэлт</div>
+
+                <div class="interest">📱 Технологи</div>
+
+                <div class="interest">🏐 Волейбол</div>
+
+                <div class="interest">📚 Шинэ зүйл сурах</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section id="contact">
+
+            <h2 class="section-title">
+                📞 <span>Холбоо барих</span>
+            </h2>
+
+            <div class="contact">
+
+                <div class="contact-card">
+
+                    <div class="icon">📱</div>
+
+                    <h3>Утас</h3>
+
+                    <p>
+                        <a href="tel:99112233">
+                            99112233
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <div class="icon">📧</div>
+
+                    <h3>Email</h3>
+
+                    <p>
+                        <a href="mailto:your-email@gmail.com">
+                            your-email@gmail.com
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <div class="icon">🐙</div>
+
+                    <h3>GitHub</h3>
+
+                    <p>
+                        <a href="https://github.com/nymosor8888-dotcom"
+                           target="_blank">
+                            Миний GitHub
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
     <footer>
 
         <p>
-            © 2026 Бямба Ням-Осор | Миний CV
+            © 2026 Бямба Ням-Осор
+        </p>
+
+        <p>
+            Программ хангамжийн инженерчлэл
         </p>
 
     </footer>
 
-</div>
-
 </body>
 </html>
-`
